@@ -6,9 +6,11 @@
 
 #IncludeRegexTransform: 
 
-C:/SoftwareEngineering/GitTest/WordCount/main.c
+C:/SoftwareEngineering/GitTest/WordCout/WordCount/main.c
 stdio.h
 -
 string.h
+-
+ctype.h
 -
 

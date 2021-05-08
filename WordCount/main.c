@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 void CountC(char *filename);
 void CountW(char *filename);
@@ -16,7 +17,7 @@ int main(int argc, char **args) {
 
 void CountC(char *filename){
     FILE *fp;
-    char buffer[1024] = "";
+    char buffer[1024] = {0};
     fp = fopen(filename, "r");
     int count = 0;
     while (!feof(fp)) {
@@ -24,15 +25,11 @@ void CountC(char *filename){
         fgets(buffer, 1024, fp);
         int len = strlen(buffer);
         for (int i = 0; i < len; ++i) {
-            if (buffer[i] == ',') {
-                count++;
-            }
-            if (buffer[i] == ' ') {
-                flag = 0;
-            }
-            else if (flag == 0) {
+            if (isalpha(buffer[i]) && flag == 0) {
                 flag = 1;
                 count++;
+            } else if (buffer[i] == ' ' || buffer[i] == ',') {
+                flag = 0;
             }
         }
     }
@@ -48,7 +45,8 @@ void CountW(char *filename){
         fgets(buffer, 1024, fp);
         int len = strlen(buffer);
         for (int i = 0; i < len; ++i) {
-            if (97 <= buffer[i] && buffer[i] <= 122 || 65 <= buffer[i] && buffer[i] <= 90) {
+            if (isalpha(buffer[i])) {
+                //字符为小写字母或大写字母
             } else {
                 if (buffer[i] != '\n') {
                     count++;
