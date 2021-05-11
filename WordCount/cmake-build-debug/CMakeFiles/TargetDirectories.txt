@@ -1,3 +1,0 @@
-C:/SoftwareEngineering/GitTest/WordCout/WordCount/cmake-build-debug/CMakeFiles/WordCount.dir
-C:/SoftwareEngineering/GitTest/WordCout/WordCount/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/SoftwareEngineering/GitTest/WordCout/WordCount/cmake-build-debug/CMakeFiles/rebuild_cache.dir
