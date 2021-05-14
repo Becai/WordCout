@@ -15,7 +15,7 @@ int main(int argc, char **args) {
     return 0;
 }
 
-void CountC(char *filename){
+void CountW(char *filename){
     FILE *fp;
     char buffer[1024] = {0};
     fp = fopen(filename, "r");
@@ -33,26 +33,20 @@ void CountC(char *filename){
             }
         }
     }
-    printf("The number of characters is %d", count);
+    printf("The number of words is %d", count);
 }
 
-void CountW(char *filename){
+void CountC(char *filename){
     FILE *fp;
     char buffer[1024] = "";
     fp = fopen(filename, "r");
     int count = 0;
     while (!feof(fp)) {
-        fgets(buffer, 1024, fp);
+        fread(buffer, 1024, 1,fp);
         int len = strlen(buffer);
         for (int i = 0; i < len; ++i) {
-            if (isalpha(buffer[i])) {
-                //字符为小写字母或大写字母
-            } else {
-                if (buffer[i] != '\n') {
-                    count++;
-                }
-            }
+            count++;
         }
     }
-    printf("The number of sign is %d", count);
+    printf("The number of characters is %d", count);
 }
